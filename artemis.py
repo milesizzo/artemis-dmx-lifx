@@ -70,6 +70,9 @@ class LifxHandler(object):
     def __init__(self):
         self.lifx = lifxlan.LifxLAN()
         self.lifx.get_lights()
+        self.lifx.set_power_all_lights(True)
+        self.set_colour(0, 0, 0)
+
         self.red_alert_active = False
         self.shields_active = False
         self.game_active = False
@@ -99,17 +102,17 @@ class LifxHandler(object):
 
         if self.docking_state == 1:
             print "Start docking process"
-            self.set_colour(0.0, 0.5, 0.0, slow_transition)
+            self.set_colour(0.0, 0.2, 0.0, slow_transition)
         elif self.docking_state == 2:
             print "Docked"
-            self.set_colour(0.0, 0.2, 0.0, slow_transition)
+            self.set_colour(0.0, 0.1, 0.0, slow_transition)
         elif self.red_alert_active:
             print "Red alert active"
-            self.set_colour(0.5, 0.0, 0.0, fast_transition)
+            self.set_colour(0.2, 0.0, 0.0, fast_transition)
         elif self.shields_active:
             print "Shields active"
             # blue for shields
-            self.set_colour(0.0, 0.0, 0.5, slow_transition)
+            self.set_colour(0.0, 0.0, 0.2, slow_transition)
         elif self.game_active:
             print "Default game active state"
             # if the game is active, we don't need any lights on
