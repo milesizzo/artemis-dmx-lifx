@@ -1,3 +1,5 @@
+*This code has moved to the Artemis repository*
+
 # Artemis DMX - LIFX integration
 
 Particular DMX events trigger LIFX light events. If anyone has stumbled
